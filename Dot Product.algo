@@ -1,0 +1,99 @@
+                               // with procedure
+
+//remplir les vecteurs
+PROCEDURE remplir(v1 , v2)
+VAR
+    i : integer;
+    v1 : ARRAY_OF integer [3];
+    v2 : ARRAY_OF integer [3];
+BEGIN
+    FOR i FROM 0 TO 2   DO
+        read (v1[i]);
+    END_FOR
+    FOR i FROM 0 TO 2  DO
+        read (v2[i]);
+    END_FOR
+END
+
+//calcule de la produit
+PROCEDURE product(v1 ,v2)
+VAR
+    i, j, p: integer
+    v1 : ARRAY_OF integer[3];
+    v2 : ARRAY_OF integer[3];
+BEGIN
+    FOR i FROM 0 TO 2 DO
+        FOR j FROM 0 TO 2   DO
+            IF (i=j) THEN
+                p += v1[i]*v2[j];
+            END_IF
+        END_FOR
+    END_FOR
+      IF (ps=0) THEN
+        write ("les deux vecteurs sont orthogonaux");
+   ELSE
+       write("les deux vecteurs ne sont pas orthogonaux, leurs produt est :", p);
+   END_IF
+END
+
+//main algorithm
+ALGORITHM Dot product (v1 , v2)
+VAR
+    v1 : ARRAY_OF integer[3];
+    v2 : ARRAY_OF integer[3];
+BEGIN
+//remplir les vecteurs
+ remplir(v1 , v2)
+//calcule de la produit
+ product(v1 ,v2)
+END
+
+                           // with Function
+
+//remplir les vecteurs
+PROCEDURE remplir(v1 , v2)
+VAR
+    i : integer;
+    v1 : ARRAY_OF integer [3];
+    v2 : ARRAY_OF integer [3];
+BEGIN
+    FOR i FROM 0 TO 2   DO
+        read (v1[i]);
+    END_FOR
+    FOR i FROM 0 TO 2  DO
+        read (v2[i]);
+    END_FOR
+END
+
+//calcule de la produit
+FUNCTION product(var v1 ,v2) : FLOAT
+VAR
+    i, j, p: integer
+    v1 : ARRAY_OF integer[3];
+    v2 : ARRAY_OF integer[3];
+BEGIN
+    FOR i FROM 0 TO 2 DO
+        FOR j FROM 0 TO 2   DO
+            IF (i=j) THEN
+                p += v1[i]*v2[j];
+            END_IF
+        END_FOR
+    END_FOR
+      IF (ps=0) THEN
+        write ("les deux vecteurs sont orthogonaux");
+   ELSE
+       write("les deux vecteurs ne sont pas orthogonaux, leurs produt est :", p);
+   END_IF
+END
+
+//main algorithm
+ALGORITHM Dot product (v1 , v2)
+VAR
+    v1 : ARRAY_OF integer[3];
+    v2 : ARRAY_OF integer[3];
+BEGIN
+//remplir les vecteurs
+ remplir(v1 , v2);
+//calcule de la produit
+ product(var v1 ,v2);
+END
